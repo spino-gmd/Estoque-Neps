@@ -19,19 +19,28 @@ int main() {
     cout << "4. Sair" << endl;
     cout << "Opção:";
 
+    do{
     cin >> menu;
     switch(menu){
         case 1:
 
+        
         case 2:
+
 
         case 3:
 
+
         case 4:
+        cout << "Obrigado por usar o Controle de Estoques! Até a próxima.";
+        return 0;
 
         default:
-        
+        cout << "Opção inválida! Tente novamente.";
+        while(getchar() !=  '\n');
+        break;
     }
+}while(menu != 1 && menu != 2 && menu != 3 && menu != 4);
 
     }
     
