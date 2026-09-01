@@ -18,7 +18,7 @@ int main() {
     cout << "3. Listar Estoque" << endl;
     cout << "4. Sair" << endl;
     cout << "Opção:";
-
+    //vendo se consigo editar
     do{
     cin >> menu;
     switch(menu){
