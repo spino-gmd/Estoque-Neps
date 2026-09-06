@@ -1,48 +1,78 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
 int main() {
+
     // coloca as variáveis aqui
-    int menu;
+    int menu, quant;
     char opt;
+    char item[6767];
+
     FILE *inv = fopen("inventory.txt", "w");
 
-    //coloca o código dentro do while, é pra fazer o loop
-    while(1){
-    cout << "================================" << endl;
-    cout << "Controle de Estoque" << endl;
-    cout << "================================" << endl;
-    cout << "Selecione uma opção:" << endl;
-    cout << "1. Adicionar Item" << endl;
-    cout << "2. Remover Item" << endl;
-    cout << "3. Listar Estoque" << endl;
-    cout << "4. Sair" << endl;
-    cout << "Opção:";
+    // coloca o código dentro do while, é pra fazer o loop
+    while (1) {
 
-    do{
-    cin >> menu;
-    switch(menu){
-        case 1:
+        printf("================================\n");
+        printf("Controle de Estoque\n");
+        printf("================================\n");
+        printf("Selecione uma opção:\n");
+        printf("1. Adicionar Item\n");
+        printf("2. Remover Item\n");
+        printf("3. Listar Estoque\n");
+        printf("4. Sair\n");
+        printf("Opção: ");
 
-        
-        case 2:
+        do {
 
+            scanf("%d", &menu);
+            while(getchar() != '\n');
 
-        case 3:
+            switch (menu) {
 
+                case 1:
 
-        case 4:
-        cout << "Obrigado por usar o Controle de Estoques! Até a próxima.";
-        return 0;
+                    printf("Digite o nome do item: ");
+                    scanf("%s", item);
+                    fprintf(inv, "%s\n", item);
 
-        default:
-        cout << "Opção inválida! Tente novamente.";
-        while(getchar() !=  '\n');
-        break;
+                    printf("Digite a quantidade: ");
+                    scanf("%d", &quant);
+                    fprintf(inv, "%d\n", quant);
+
+                    printf("Item adicionado com sucesso!");
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+                    printf("Obrigado por usar o Controle de Estoques! Até a próxima.\n");
+                    return 0;
+
+                default:
+                    printf("Opção inválida! Tente novamente.\n");
+                    while (getchar() != '\n');
+                    break;
+            }
+
+        } while (menu != 1 && menu != 2 && menu != 3 && menu != 4);
+
+        while(getchar() != '\n');
+
+        printf("Deseja realizar outra operação? (s/n): ");
+        scanf("%c",&opt);
+
+        if(opt == 'N' || opt == 'n'){
+            printf("Obrigado por usar o Controle de Estoques! Até a próxima.");
+            return 0;
+        }else if(opt == 'S' || opt == 's') continue;
+
     }
-}while(menu != 1 && menu != 2 && menu != 3 && menu != 4);
-
-    }
-    
     return 0;
 }
