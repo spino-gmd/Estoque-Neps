@@ -1,14 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h> //pra usar booleanos
 
 int main() {
 
     // coloca as variáveis aqui
-    int menu, quant;
+    int menu, quant, qarch;
+
+    bool run = false;
+
     char opt;
     char item[6767];
+    char search[6161];
+    
 
-    FILE *inv = fopen("inventory.txt", "w");
+    FILE *inv = fopen("inventory.txt", "w+");
 
     // coloca o código dentro do while, é pra fazer o loop
     while (1) {
@@ -45,6 +51,31 @@ int main() {
 
                 case 2:
 
+                    printf("Digite o nome do item: ");
+                    scanf("%s",item);
+
+                    while(fgets(search, sizeof(search), inv) != NULL){
+                        if(search == item){
+                            fscanf(inv, "%d", &qarch);
+                            printf("Digite a quantidade a ser removida: ");
+                            scanf("%d",&quant);
+                            if(qarch > quant){
+                                 qarch = quant;
+                                 printf("Quantidade atualizada com sucesso!");
+                            }else if(qarch == quant){
+                                qarch = 0;
+                                printf("Item removido do estoque!");
+                            }else{
+                                printf("Estoque insuficiente. Quantidade disponível: %d", qarch);
+                            }
+
+                            run = true;
+                            break;
+                        }
+                    }
+                    if(run == true) break;
+                    else printf("Item não encontrado.");
+                    
                     break;
 
                 case 3:
