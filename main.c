@@ -60,7 +60,7 @@ int main() {
                             printf("Digite a quantidade a ser removida: ");
                             scanf("%d",&quant);
                             if(qarch > quant){
-                                 qarch = quant;
+                                 qarch -= quant;
                                  printf("Quantidade atualizada com sucesso!");
                             }else if(qarch == quant){
                                 qarch = 0;
