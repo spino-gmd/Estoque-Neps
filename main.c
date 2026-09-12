@@ -20,7 +20,7 @@ int main() {
     while (1) {
 
         printf("================================\n");
-        printf("Controle de Estoque\n");
+        printf("      Controle de Estoque\n");
         printf("================================\n");
         printf("Selecione uma opção:\n");
         printf("1. Adicionar Item\n");
@@ -74,11 +74,25 @@ int main() {
                         }
                     }
                     if(run == true) break;
-                    else printf("Item não encontrado.");
+                    else printf("Item não encontrado.\n");
                     
                     break;
 
                 case 3:
+                if(fgets(item, sizeof (item), inv) == NULL){
+                    printf("O estoque está vazio.");
+                    break;
+                }
+
+                    printf("=============================\n");
+                    printf("        Estoque Atual\n");
+                    printf("=============================\n");
+                    while(item != NULL){
+                        printf("Nome: %s",item);
+                        fgets(item, sizeof (item), inv);
+                        printf("Quantidade: %s",item);
+                        fgets(item, sizeof (item), inv);
+                    }
 
                     break;
 
