@@ -13,7 +13,6 @@ int main() {
     char item[150];
     char search[150];
     
-
     FILE *inv = fopen("inventory.txt", "w+");
 
     // coloca o código dentro do while, é pra fazer o loop
@@ -79,7 +78,7 @@ int main() {
                     break;
 
                 case 3:
-                if(fgets(item, sizeof (item), inv) == NULL){
+                if(fscanf(inv,"%s\n",item) == NULL){
                     printf("O estoque está vazio.");
                     break;
                 }
@@ -88,10 +87,10 @@ int main() {
                     printf("        Estoque Atual\n");
                     printf("=============================\n");
                     while(item != NULL){
-                        printf("Nome: %s",item);
-                        fgets(item, sizeof (item), inv);
-                        printf("Quantidade: %s",item);
-                        fgets(item, sizeof (item), inv);
+                        printf("Nome: %s\n",item);
+                        fscanf(inv,"%d\n",&quant);
+                        printf("Quantidade: %s\n",item);
+                        fscanf(inv,"%s\n",item);
                     }
 
                     break;
