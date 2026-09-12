@@ -10,8 +10,8 @@ int main() {
     bool run = false;
 
     char opt;
-    char item[6767];
-    char search[6161];
+    char item[150];
+    char search[150];
     
 
     FILE *inv = fopen("inventory.txt", "w+");
