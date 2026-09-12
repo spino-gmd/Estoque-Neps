@@ -10,6 +10,7 @@ int main() {
     bool run = false;
 
     char opt;
+    char test;
     char item[150];
     char search[150];
     
@@ -78,19 +79,18 @@ int main() {
                     break;
 
                 case 3:
-                if(fscanf(inv,"%s\n",item) == NULL){
+                test = fgetc(inv);
+                if(test == EOF){
                     printf("O estoque está vazio.");
                     break;
                 }
-
+                    ungetc(test, inv);
                     printf("=============================\n");
                     printf("        Estoque Atual\n");
                     printf("=============================\n");
-                    while(item != NULL){
+                    while(fscanf(inv, "%s \n %d", item, &quant) == 2){
                         printf("Nome: %s\n",item);
-                        fscanf(inv,"%d\n",&quant);
-                        printf("Quantidade: %s\n",item);
-                        fscanf(inv,"%s\n",item);
+                        printf("Quantidade: %d\n\n",quant);
                     }
 
                     break;
